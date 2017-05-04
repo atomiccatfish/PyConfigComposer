@@ -1,0 +1,18 @@
+{
+    "hemisphere": "all your base are belong to us",
+    "start_year": 1234,
+    "add_year": true,
+    "warnings": true,
+    "description": "john sheppard",
+    "final_year": 876,
+    "final_day": 132,
+    "data_type": "is a weenie",
+    "start_day": 452,
+    "final_month": 879,
+    "data_path": "/this/is/a/path",
+    "filter_bad_data": true,
+    "start_month": 145,
+    "output_path": "/this/is/another/path",
+    "adddoy": true,
+    "testing": true
+}

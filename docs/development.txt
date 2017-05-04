@@ -1,0 +1,15 @@
+This should use a rules engine.
+
+# INSTALLING
+# ...from project root:
+./create_venv.sh
+source activate_venv.sh
+
+# TESTING
+nosetests -v -s tests/test_tools.py:TestSetInDict
+
+# PACKAGING
+Reference this: https://python-packaging.readthedocs.io/en/latest/
+
+# VENV INSTALLATION
+pip install --editable .

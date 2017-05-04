@@ -1,0 +1,18 @@
+{
+	"description": "Sea ice northern hemisphere configuration file for Climate program.",
+	"data_path": "/disks/sidads_ftp/pub/DATASETS/NOAA/G02202_v2/north/daily/",
+	"add_year": true,
+	"adddoy": false,
+	"output_path": "/projects/condensate/baselines/seaice/north/",
+	"data_type": "seaice",
+	"start_year": 1978,
+	"start_month": 10,
+	"start_day": 26,
+	"final_year": 2014,
+	"final_month": 12,
+	"final_day": 31,
+	"warnings": true,
+	"hemisphere": "north",
+	"filter_bad_data": true,
+	"testing": false
+}

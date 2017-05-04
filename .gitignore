@@ -87,3 +87,6 @@ ENV/
 
 # Rope project settings
 .ropeproject
+/confcomp/PyConfigComposer.egg-info/
+/pcc_env/
+/.idea/
