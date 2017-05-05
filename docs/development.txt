@@ -4,8 +4,10 @@ This should use a rules engine.
 # ...from project root:
 ./create_venv.sh
 source activate_venv.sh
+./click_install.sh
 
 # TESTING
+# Running exactly one test:
 nosetests -v -s tests/test_tools.py:TestSetInDict
 
 # PACKAGING
