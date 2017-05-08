@@ -16,7 +16,7 @@ class ConfigValidator:
     def __init__(self):
         pass
 
-    def validate(self, value, element_spec):
+    def validate(self, value, element_spec, value_spec):
         """
         
         :param element_spec: 
@@ -87,6 +87,7 @@ class JsonConfigValidator(ConfigValidator):
         :param value_spec: 
         :return: 
         """
+        print("Warning!  Value validation has not been implemented here!")
         return True
 
 
