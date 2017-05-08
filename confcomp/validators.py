@@ -5,7 +5,7 @@ from jsonschema import validate
 from jsonschema.exceptions import ValidationError
 
 
-import tools
+import confcomp.tools as tools
 
 
 __author__ = 'Richard McAllister'
