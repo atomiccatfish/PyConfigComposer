@@ -112,6 +112,6 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     entry_points={
         'console_scripts': [
-            'jsonconf = main:jsonconf'],
+            'jsonconf = confcomp.main:jsonconf'],
     },
 )
