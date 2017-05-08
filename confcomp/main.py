@@ -1,7 +1,7 @@
 import click
 import json
 
-import composers
+import confcomp.composers as composers
 
 __author__ = 'Richard McAllister'
 
