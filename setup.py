@@ -72,7 +72,7 @@ setup(
     # packages=find_packages(exclude=['contrib', 'docs', 'tests']),
     packages=['confcomp'],
 
-    package_dir={'confcomp', 'confcomp'},
+    package_dir={'confcomp': 'confcomp'},
 
     # Alternatively, if you want to distribute just a my_module.py, uncomment
     # this:
