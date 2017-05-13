@@ -64,10 +64,14 @@ class ConfigValidator:
     def _validate_value(self, value, value_spec):
         pass
 
+    @abc.abstractmethod
+    def _validate_wiring(self, value, value_spec):
+        pass
+
 
 class JsonConfigValidator(ConfigValidator):
 
-    def __init__(self, json_schema, json_values):
+    def __init__(self, json_schema, json_values, wiring_validator):
         super().__init__()
         self.json_schema, self.json_values = json_schema, json_values
 
@@ -78,7 +82,8 @@ class JsonConfigValidator(ConfigValidator):
         :param element_spec: 
         :return: 
         """
-        return validate(value, tools.get_from_dict(self.json_schema, tools.interleave_string(element_spec, 'properties')))
+        return validate(value, tools.get_from_dict(self.json_schema,
+                                                   tools.interleave_string(element_spec, 'properties')))
 
     def _validate_value(self, value, value_spec):
         """
@@ -90,10 +95,34 @@ class JsonConfigValidator(ConfigValidator):
         print("Warning!  Value validation has not been implemented here!")
         return True
 
+    def _validate_wiring(self, value, element_spec):
+        """
+        
+        :param value: 
+        :param value_spec: 
+        :return: 
+        """
+        print("Warning!  Value validation has not been implemented here!")
+        return True
 
-class CompositeConfigValidator:
+
+class WiringValidator:
 
     def __init__(self):
         pass
 
+    @abc.abstractmethod
+    def validate(self, element_spec, value):
+        pass
 
+
+class JsonWiringValidator:
+
+    def __init__(self):
+        super().__init__()
+        self.tests = {
+            'you': lambda x: x > 5
+        }
+
+    def validate(self, element_spec, value):
+        return tools.get_from_dict(self.tests, element_spec)(value)
