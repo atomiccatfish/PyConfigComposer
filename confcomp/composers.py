@@ -88,7 +88,7 @@ class JsonConfigComposer(ConfigComposer):
     }
 
     def __init__(self, structure_spec):
-        super().__init__(structure_spec, validators.JsonConfigValidator(structure_spec, None))
+        super().__init__(structure_spec, validators.JsonConfigValidator(structure_spec, None, None))
 
     def get_structure_elements(self):
         """
