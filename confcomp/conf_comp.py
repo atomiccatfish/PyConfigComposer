@@ -18,7 +18,8 @@ def create_json_config(schema_file, output_file, defaults_file=None):
     jcc = composers.JsonConfigComposer(json.loads(schema_file.read()))
     new_config = jcc.create_config()
 
-    json.dump(new_config, output_file, indent=4, separators=(',', ': '))
+    with open(output_file, 'w') as output:
+        json.dump(new_config, output, indent=4, separators=(',', ': '))
 
 
 def validate_json_config(instance_file, schema_file):
