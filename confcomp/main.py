@@ -1,7 +1,7 @@
 import click
-import json
 
-import confcomp.composers as composers
+
+import confcomp.conf_comp as cc
 
 __author__ = 'Richard McAllister'
 
@@ -11,7 +11,4 @@ __author__ = 'Richard McAllister'
 @click.argument('defaults_file', type=click.File('w'), required=False)
 def jsonconf(schema_file, output_file, defaults_file=None):
 
-    jcc = composers.JsonConfigComposer(json.loads(schema_file.read()))
-    new_config = jcc.create_config()
-
-    json.dump(new_config, output_file, indent=4, separators=(',', ': '))
+    cc.create_json_config(schema_file, output_file, defaults_file)

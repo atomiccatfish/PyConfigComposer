@@ -1,8 +1,8 @@
 import abc
 
 
-import confcomp.tools as tools
-import confcomp.validators as validators
+import conf_comp.tools as tools
+import conf_comp.validators as validators
 
 
 __author__ = 'Richard McAllister'
