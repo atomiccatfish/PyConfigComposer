@@ -15,21 +15,21 @@ class TestConfigValidator(unittest.TestCase):
         cv = validators.ConfigValidator()
         cv._validate_structure = MagicMock(return_value=None)
         cv._validate_values = MagicMock(return_value=None)
-        self.assertTrue(cv.validate(None, {}))
+        self.assertTrue(cv.validate_segment(None, {}))
 
     def test_validate_struct_fail(self):
         cv = validators.ConfigValidator()
         cv._validate_structure = MagicMock(return_value="A structure error occurred!")
         cv._validate_values = MagicMock(return_value=None)
         with self.assertRaises(ValueError):
-            cv.validate(None, {})
+            cv.validate_segment(None, {})
 
     def test_validate_struct_value_fail(self):
         cv = validators.ConfigValidator()
         cv._validate_structure = MagicMock(return_value=None)
         cv._validate_values = MagicMock(return_value="A value error occurred!")
         with self.assertRaises(ValueError):
-            cv.validate(None, {})
+            cv.validate_segment(None, {})
 
 
 class TestJsonConfigValidator(unittest.TestCase):

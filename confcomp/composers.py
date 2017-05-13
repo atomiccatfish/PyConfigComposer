@@ -72,7 +72,7 @@ class ConfigComposer:
                     continue
 
                 # Validate against schema.
-                err_msg = self.validator.validate(elem_value, struct_elem, None)
+                err_msg = self.validator.validate_segment(elem_value, struct_elem, None)
                 if err_msg:
                     print(err_msg)
             tools.set_in_dict(self.config_dict, struct_elem, elem_value)

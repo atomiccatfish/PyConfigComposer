@@ -16,7 +16,7 @@ class ConfigValidator:
     def __init__(self):
         pass
 
-    def validate(self, value, element_spec, value_spec):
+    def validate_segment(self, value, element_spec, value_spec):
         """
         
         :param element_spec: 
@@ -50,6 +50,10 @@ class ConfigValidator:
             return None
 
     @abc.abstractmethod
+    def validate_all(self, all_instance):
+        pass
+
+    @abc.abstractmethod
     def _validate_structure(self, value, element_spec):
         """
         
@@ -74,6 +78,9 @@ class JsonConfigValidator(ConfigValidator):
     def __init__(self, json_schema, json_values, wiring_validator):
         super().__init__()
         self.json_schema, self.json_values = json_schema, json_values
+
+    def validate_all(self, all_instance):
+        return validate(all_instance, self.json_schema)
 
     def _validate_structure(self, value, element_spec):
         """
