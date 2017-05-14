@@ -4,7 +4,10 @@ This should use a rules engine.
 # ...from project root:
 ./create_venv.sh
 source activate_venv.sh
-./click_install.sh
+
+
+
+pip install --editable .
 
 # TESTING
 # Running exactly one test:
