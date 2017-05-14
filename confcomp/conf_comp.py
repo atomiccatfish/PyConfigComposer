@@ -1,5 +1,7 @@
 import json
 
+import jsonschema
+
 import confcomp.composers as composers
 import confcomp.validators as validators
 
@@ -30,4 +32,13 @@ def validate_json_config(instance_file, schema_json):
     :return: 
     """
     jcc = validators.JsonConfigValidator(schema_json, None, None)
-    return jcc.validate_all(json.loads(instance_file.read()))
+
+    try:
+
+        jcc.validate_all(json.loads(instance_file.read()))
+
+    except jsonschema.exceptions.ValidationError as e:
+        print(e.message)
+        return False
+
+    return True
