@@ -15,21 +15,21 @@ class TestConfigValidator(unittest.TestCase):
         cv = validators.ConfigValidator()
         cv._validate_structure = MagicMock(return_value=None)
         cv._validate_values = MagicMock(return_value=None)
-        self.assertTrue(cv.validate_segment(None, {}))
+        self.assertTrue(cv.validate_segment(None, {}, None))
 
     def test_validate_struct_fail(self):
         cv = validators.ConfigValidator()
         cv._validate_structure = MagicMock(return_value="A structure error occurred!")
         cv._validate_values = MagicMock(return_value=None)
         with self.assertRaises(ValueError):
-            cv.validate_segment(None, {})
+            cv.validate_segment(None, {}, None)
 
     def test_validate_struct_value_fail(self):
         cv = validators.ConfigValidator()
         cv._validate_structure = MagicMock(return_value=None)
         cv._validate_values = MagicMock(return_value="A value error occurred!")
         with self.assertRaises(ValueError):
-            cv.validate_segment(None, {})
+            cv.validate_segment(None, {}, None)
 
 
 class TestJsonConfigValidator(unittest.TestCase):
@@ -46,20 +46,20 @@ class TestJsonConfigValidator(unittest.TestCase):
     value_spec = {"price": {80, 60, 73}}
 
     def test_validate_structure_pass(self):
-        jv = validators.JsonConfigValidator(self.element_spec, self.value_spec)
+        jv = validators.JsonConfigValidator(self.element_spec, self.value_spec, None)
         self.assertIsNone(jv._validate_structure(80, ['price']))
 
     def test_validate_structure_fail(self):
-        jv = validators.JsonConfigValidator(self.element_spec, self.value_spec)
+        jv = validators.JsonConfigValidator(self.element_spec, self.value_spec, None)
         with self.assertRaises(ValidationError):
             jv._validate_structure(False, ['price'])
 
     def test_validate_structure_value_pass(self):
-        jv = validators.JsonConfigValidator(self.element_spec, self.value_spec)
+        jv = validators.JsonConfigValidator(self.element_spec, self.value_spec, None)
         self.assertIsNone(jv._validate_structure('george', ['name']))
 
     def test_validate_structure_value_fail(self):
-        jv = validators.JsonConfigValidator(self.element_spec, self.value_spec)
+        jv = validators.JsonConfigValidator(self.element_spec, self.value_spec, None)
         with self.assertRaises(ValidationError):
             jv._validate_structure('jason', ['name'])
 
@@ -67,16 +67,16 @@ class TestJsonConfigValidator(unittest.TestCase):
         pass
 
     def test_validate_value_fail(self):
-        jv = validators.JsonConfigValidator(self.element_spec, self.value_spec)
+        jv = validators.JsonConfigValidator(self.element_spec, self.value_spec, None)
         with self.assertRaises(ValidationError):
             jv._validate_structure(False, ['price'])
 
     def test_validate_value_value_pass(self):
-        jv = validators.JsonConfigValidator(self.element_spec, self.value_spec)
+        jv = validators.JsonConfigValidator(self.element_spec, self.value_spec, None)
         self.assertIsNone(jv._validate_structure('george', ['name']))
 
     def test_validate_value_value_fail(self):
-        jv = validators.JsonConfigValidator(self.element_spec, self.value_spec)
+        jv = validators.JsonConfigValidator(self.element_spec, self.value_spec, None)
         with self.assertRaises(ValidationError):
             jv._validate_structure('jason', ['name'])
 

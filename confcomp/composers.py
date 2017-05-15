@@ -116,14 +116,18 @@ class JsonConfigComposer(ConfigComposer):
 
     def resolve_type(self, str_type, value):
         """
+        Resolves the string representation of the type with the actual type.  Casts the value to that actual type.
         
-        :param str_type: 
-        :type str_type: 
-        :param value:
-        :type value:
-        :return: 
+        :param str_type: The string representation of the type.  Should be represented in the type_dict.
+        :type str_type: str
+        :param value: The value to be cast.
+        :type value: str
+        :return: The value cast to the type represented in the type_dict.
         :rtype: 
         """
+
+        # TODO
+
         return self.type_dict[str_type](value)
 
 

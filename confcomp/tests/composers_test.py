@@ -1,6 +1,4 @@
 import unittest
-# import mock
-import pprint
 
 
 import composers
@@ -35,7 +33,7 @@ class TestJsonConfigComposer(unittest.TestCase):
     def test_get_element_property(self):
         jcc = composers.JsonConfigComposer(self.element_spec)
         short_key = ('nested', 'temperature')
-        self.assertEqual(jcc.get_element_property(short_key), 'number')
+        self.assertEqual(jcc.get_element_property(short_key, 'type'), 'number')
 
 
 if __name__ == "__main__":
