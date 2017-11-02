@@ -38,10 +38,11 @@ class JsonFileSchemaOperator(Operator):
 
 class DictionarySchemaOperator(Operator):
 
-    def __init__(self, config_dict, schema_dict):
+    schema_dict = {}
+
+    def __init__(self, config_dict):
         super().__init__()
         self.config_dict = config_dict
-        self.schema_dict = schema_dict
 
     def get_schema(self):
         return self.schema_dict

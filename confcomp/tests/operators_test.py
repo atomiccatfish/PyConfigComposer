@@ -98,8 +98,8 @@ class TestDictionarySchemaOperator(unittest.TestCase):
     }
 
     def test_validate_config(self):
-        dso = oper.DictionarySchemaOperator(self.test_schema,
-                                            self.test_instance)
+        dso = oper.DictionarySchemaOperator(self.test_instance)
+        dso.schema_dict = self.test_schema
         print(dso.validate_config())
 
 
