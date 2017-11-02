@@ -27,6 +27,7 @@ class JsonFileSchemaOperator(Operator):
         super().__init__()
         self.schema_file = schema_file
         self.config_file = config_file
+        self.validate_config()
 
     def get_schema(self):
         with open(self.schema_file, 'r') as input:
@@ -41,8 +42,8 @@ class DictionarySchemaOperator(Operator):
     schema_dict = {}
 
     def __init__(self, config_dict):
-        super().__init__()
         self.config_dict = config_dict
+        super().__init__()
 
     def get_schema(self):
         return self.schema_dict
