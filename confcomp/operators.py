@@ -39,14 +39,12 @@ class JsonFileSchemaOperator(Operator):
 
 class DictionarySchemaOperator(Operator):
 
-    schema_dict = {}
-
     def __init__(self, config_dict):
         self.config_dict = config_dict
         super().__init__()
 
     def get_schema(self):
-        return self.schema_dict
+        return {}
 
     def validate_config(self):
         return cc.validate_json_config(io.StringIO(json.dumps(self.config_dict)),
