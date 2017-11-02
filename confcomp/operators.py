@@ -10,7 +10,7 @@ __author__ = 'Richard McAllister'
 class Operator:
 
     def __init__(self):
-        pass
+        self.validate_config()
 
     @abstractmethod
     def get_schema(self):
@@ -24,10 +24,9 @@ class Operator:
 class JsonFileSchemaOperator(Operator):
 
     def __init__(self, schema_file, config_file):
-        super().__init__()
         self.schema_file = schema_file
         self.config_file = config_file
-        self.validate_config()
+        super().__init__()
 
     def get_schema(self):
         with open(self.schema_file, 'r') as input:
