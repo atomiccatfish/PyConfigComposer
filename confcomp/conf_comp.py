@@ -42,3 +42,11 @@ def validate_json_config(instance_file, schema_json):
         return False
 
     return True
+
+
+def create_dict_config(schema_dict, output_file):
+    pass
+
+
+def validate_dict_config(instance_dict, schema_dict):
+    pass

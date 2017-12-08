@@ -5,6 +5,14 @@ import confcomp.operators as oper
 __author__ = 'Richard McAllister'
 
 
+class TestOperator(unittest.TestCase):
+    pass
+
+
+class TestJsonFileSchemaOperator(unittest.TestCase):
+    pass
+
+
 class TestDictionarySchemaOperator(unittest.TestCase):
     test_schema = {
         "title": "condensate_config",
